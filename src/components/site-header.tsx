@@ -48,14 +48,14 @@ export function SiteHeader() {
         scrolled ? "border-border/60 bg-background/80 backdrop-blur-lg" : "border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2.5 group">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="flex items-center gap-3 group">
           <img
             src="/logo/logo-removebg-preview.png"
             alt="Lingua Terra"
-            className="h-9 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-14 sm:h-16 w-auto object-contain transition-transform group-hover:scale-105"
           />
-          <span className="font-display text-xl font-semibold tracking-tight">Lingua Terra</span>
+          <span className="font-display text-2xl font-semibold tracking-tight">Lingua Terra</span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
