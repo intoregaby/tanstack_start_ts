@@ -10,7 +10,7 @@ A modern, high-performance web application built with **TanStack Start**, **Reac
 - **Framework:** [TanStack Start](https://tanstack.com/start) & [TanStack Router](https://tanstack.com/router)
 - **UI & Styling:** React 19, Tailwind CSS, Radix UI Primitives, Lucide Icons, Framer Motion
 - **Backend & Auth:** Supabase (`@supabase/supabase-js`)
-- **Build Tool:** Vite, Nitro
+- **Build Tool:** Vite, Nitro Engine
 - **Maps & Media:** Leaflet / React Leaflet
 
 ---
@@ -25,8 +25,8 @@ A modern, high-performance web application built with **TanStack Start**, **Reac
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/intoregaby/<repository-name>.git
-   cd <repository-name>
+   git clone https://github.com/intoregaby/tanstack_start_ts.git
+   cd tanstack_start_ts
    ```
 
 2. Install dependencies:
@@ -35,14 +35,9 @@ A modern, high-performance web application built with **TanStack Start**, **Reac
    ```
 
 3. Set up environment variables:
-   Create a `.env` file in the root directory and add your Supabase credentials:
-   ```env
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
-   VITE_SUPABASE_PROJECT_ID=your_supabase_project_id
-   SUPABASE_URL=your_supabase_url
-   SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
-   SUPABASE_PROJECT_ID=your_supabase_project_id
+   Copy `.env.example` to `.env` and fill in your Supabase credentials:
+   ```bash
+   cp .env.example .env
    ```
 
 4. Run the development server:
@@ -59,11 +54,16 @@ A modern, high-performance web application built with **TanStack Start**, **Reac
 
 ## 🌐 Deployment on Vercel
 
-1. Push your repository to GitHub under your account (`intoregaby`).
-2. Log in to [Vercel](https://vercel.com) and click **"Add New Project"**.
-3. Import your GitHub repository.
-4. Add the environment variables specified in `.env`.
-5. Click **Deploy**.
+1. Log in to [Vercel](https://vercel.com) and click **"Add New Project"**.
+2. Import the `intoregaby/tanstack_start_ts` repository from GitHub.
+3. Configure the environment variables from your `.env` file in the Vercel dashboard:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_PUBLISHABLE_KEY`
+   - `VITE_SUPABASE_PROJECT_ID`
+   - `SUPABASE_URL`
+   - `SUPABASE_PUBLISHABLE_KEY`
+   - `SUPABASE_PROJECT_ID`
+4. Click **Deploy**. Vercel will automatically build and deploy the app on every push to `main`.
 
 ---
 
