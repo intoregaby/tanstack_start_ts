@@ -9,13 +9,12 @@ export function SiteFooter() {
     <footer className="mt-24 border-t bg-sand/50">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <img
               src="/logo/logo-removebg-preview.png"
               alt="Lingua Terra"
-              className="h-14 sm:h-16 w-auto object-contain"
+              className="h-10 sm:h-12 w-auto object-contain"
             />
-            <span className="font-display text-2xl font-semibold">Lingua Terra</span>
           </div>
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">
             Learn the language <em>and</em> the lifestyle of any country — before you go, or just because you love it.
