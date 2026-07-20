@@ -49,10 +49,12 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform group-hover:rotate-12">
-            <Globe2 className="h-5 w-5" />
-          </span>
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <img
+            src="/logo/logo-removebg-preview.png"
+            alt="Lingua Terra"
+            className="h-9 w-auto object-contain transition-transform group-hover:scale-105"
+          />
           <span className="font-display text-xl font-semibold tracking-tight">Lingua Terra</span>
         </Link>
 

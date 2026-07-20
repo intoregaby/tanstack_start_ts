@@ -9,10 +9,12 @@ export function SiteFooter() {
     <footer className="mt-24 border-t bg-sand/50">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
-              <Globe2 className="h-5 w-5" />
-            </span>
+          <div className="flex items-center gap-2.5">
+            <img
+              src="/logo/logo-removebg-preview.png"
+              alt="Lingua Terra"
+              className="h-9 w-auto object-contain"
+            />
             <span className="font-display text-xl font-semibold">Lingua Terra</span>
           </div>
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">
