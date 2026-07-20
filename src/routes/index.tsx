@@ -97,8 +97,67 @@ function Home() {
             </motion.div>
           </div>
 
-          <div className="relative flex items-center justify-center">
-            <AnimatedGlobe countries={countries} />
+          <div className="relative flex items-center justify-center lg:justify-end">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="relative w-full max-w-lg"
+            >
+              {/* Main Cultural Hero Image Card */}
+              <div className="relative overflow-hidden rounded-3xl border-2 border-primary/20 bg-card shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                <img
+                  src="/hero-culture.jpg"
+                  alt="Global Culture & Traditions"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex rounded-full bg-primary/90 px-3 py-1 text-xs font-semibold text-primary-foreground backdrop-blur">
+                      🥁 Rhythms & Heritage
+                    </span>
+                    <span className="inline-flex rounded-full bg-coral/90 px-3 py-1 text-xs font-semibold text-coral-foreground backdrop-blur">
+                      🌍 Traditions & Customs
+                    </span>
+                  </div>
+                  <h3 className="mt-2.5 font-display text-2xl font-bold drop-shadow">
+                    Immerse in Authentic Global Cultures
+                  </h3>
+                  <p className="mt-1 text-xs text-white/90">
+                    Learn languages through the living traditions, native music, and daily rhythms of communities around the world.
+                  </p>
+                </div>
+              </div>
+
+              {/* Secondary floating cultural card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="absolute -bottom-6 -left-6 hidden w-64 overflow-hidden rounded-2xl border bg-background/95 p-3 shadow-xl backdrop-blur sm:flex items-center gap-3"
+              >
+                <img
+                  src="/hero-culture-2.jpg"
+                  alt="Traditional Drummers"
+                  className="h-12 w-12 rounded-xl object-cover"
+                />
+                <div className="min-w-0 flex-1">
+                  <div className="text-xs font-bold text-foreground">Native Music & Performance</div>
+                  <div className="text-[11px] text-muted-foreground">Culture + Language Lessons</div>
+                </div>
+              </motion.div>
+
+              {/* Floating feature badge top right */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="absolute -top-4 -right-4 hidden rounded-2xl border bg-background/95 px-4 py-2.5 shadow-xl backdrop-blur sm:flex items-center gap-2 text-xs font-semibold text-foreground"
+              >
+                <span className="text-lg">🗣️</span> Cultural Heritage & Language
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
