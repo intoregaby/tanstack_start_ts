@@ -1,7 +1,4 @@
-import { createLovableAuth } from "@lovable.dev/cloud-auth-js";
 import { supabase } from "../supabase/client";
-
-const lovableAuth = createLovableAuth();
 
 type SignInOptions = {
   redirect_uri?: string;
@@ -11,31 +8,25 @@ type SignInOptions = {
 export const lovable = {
   auth: {
     signInWithOAuth: async (provider: "google" | "apple" | "microsoft" | "lovable", opts?: SignInOptions) => {
-      try {
-        const result = await lovableAuth.signInWithOAuth(provider, {
-          redirect_uri: opts?.redirect_uri,
-          extraParams: opts?.extraParams,
-        });
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: (provider === "microsoft" ? "azure" : provider) as "google" | "apple" | "azure",
+        options: {
+          redirectTo: opts?.redirect_uri || (typeof window !== "undefined" ? window.location.origin : undefined),
+          queryParams: opts?.extraParams,
+        },
+      });
 
-        if (result.redirected || result.error) {
-          return result;
+      if (error) {
+        if (error.message.includes("missing OAuth secret") || error.message.includes("validation_failed") || error.message.includes("Unsupported provider")) {
+          return {
+            error: new Error(
+              "Google Provider needs to be enabled in your Supabase Auth settings. You can sign up/in immediately using Email & Password below!"
+            ),
+          };
         }
-
-        if (result.tokens) {
-          await supabase.auth.setSession(result.tokens);
-        }
-        return result;
-      } catch {
-        const { data, error } = await supabase.auth.signInWithOAuth({
-          provider: (provider === "microsoft" ? "azure" : provider) as "google" | "apple" | "azure",
-          options: {
-            redirectTo: opts?.redirect_uri || (typeof window !== "undefined" ? window.location.origin : undefined),
-            queryParams: opts?.extraParams,
-          },
-        });
-        if (error) return { error };
-        return { redirected: true, data };
+        return { error };
       }
+      return { redirected: true, data };
     },
   },
 };

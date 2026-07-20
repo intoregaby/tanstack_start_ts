@@ -59,7 +59,12 @@ function AuthPage() {
         });
         if (error) throw error;
         if (signed.user) await recordReferralIfAny(signed.user.id);
-        toast.success("Check your email to confirm your account (if required), then sign in.");
+        if (signed.session) {
+          toast.success("Account created successfully!");
+          navigate({ to: (redirect || "/dashboard") as string });
+        } else {
+          toast.success("Account created! Check your email to confirm if required, then sign in below.");
+        }
       } else {
         const { data: signed, error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
